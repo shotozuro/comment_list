@@ -6,7 +6,7 @@ document.getElementById("sorting").addEventListener("change", onSelectSort)
 
 let defComments = []
 let comments = []
-let commentLimit = 4
+let commentLimit = 15
 
 function onSelectPage (e) {
   const page = e.target.id.split("-")
