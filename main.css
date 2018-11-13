@@ -1,0 +1,35 @@
+.header {
+  text-align: center;
+}
+tr {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px 5px 10px 5px;
+}
+
+.action {
+  margin-bottom: 10px;
+}
+
+.page-number {
+  margin: 2px;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+}
+
+input {
+  height: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#search {
+  height: 25px;
+}
+#sorting {
+  height: 25px;
+}

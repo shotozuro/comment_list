@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>List of comments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="main">
+    <div>
+      <div class="action">
+        <label for="sorting">Sorting</label>
+        <select id="sorting">
+          <option value="id-asc">Id (ASC)</option>
+          <option value="name-asc">Name (ASC)</option>
+          <option value="email-asc">Email (ASC)</option>
+          <option value="id-desc">Id (DESC)</option>
+          <option value="name-desc">Name (DESC)</option>
+          <option value="email-desc">Email (DESC)</option>
+        </select>
+      </div>
+      <div class="action">
+        <input placeholder="Search Comment" type="text" id="searchText" />
+        <button id="search">Search</button>
+      </div>
+    </div>
+    <table id="list">
+
+    </table>
+    <div id="pagination">
+
+    </div>
+  </div>
+</body>
+</html>
