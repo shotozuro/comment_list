@@ -6,14 +6,14 @@
   <title>List of comments</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  <script src="script.js" defer></script>
 </head>
 <body>
   <div id="main">
     <div>
       <div class="action">
         <label for="sorting">Sorting</label>
-        <select id="sorting">
+        <select id="sorting" >
+        <!-- <select id="sorting" onchange="onSelectSort(event)"> -->
           <option value="id-asc">Id (ASC)</option>
           <option value="name-asc">Name (ASC)</option>
           <option value="email-asc">Email (ASC)</option>
@@ -24,6 +24,7 @@
       </div>
       <div class="action">
         <input placeholder="Search Comment" type="text" id="searchText" />
+        <!-- <button id="search" onclick="onSearch(event)">Search</button> -->
         <button id="search">Search</button>
       </div>
     </div>
@@ -34,5 +35,14 @@
 
     </div>
   </div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById("search").addEventListener("click", onSearch)
+      document.getElementById("sorting").addEventListener("change", onSelectSort)
+    })
+
+    getComments()
+  </script>
 </body>
 </html>
