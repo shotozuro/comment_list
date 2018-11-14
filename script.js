@@ -1,8 +1,10 @@
 const listEl = document.getElementById("list")
 const paginationEl = document.getElementById("pagination")
 
-document.getElementById("search").addEventListener("click", onSearch)
-document.getElementById("sorting").addEventListener("change", onSelectSort)
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById("search").addEventListener("click", onSearch)
+  document.getElementById("sorting").addEventListener("change", onSelectSort)
+})
 
 let defComments = []
 let comments = []
@@ -28,11 +30,12 @@ function onSelectSort (e) {
 function onSearch () {
   const query = document.getElementById("searchText").value
   document.getElementById("sorting").value = "id-asc"
-  comments = getCommentsByBody(query)
+  comments = getCommentsByBody(defComments, query)
   renderPage()
 }
 
 function getComments() {
+  return
   let statusCode = 0
   let statusText = ""
   fetch('http://jsonplaceholder.typicode.com/comments')
@@ -81,8 +84,8 @@ function getSortedComments(data, key, order) {
   return [...data].sort(compareValues(key, order))
 }
 
-function getCommentsByBody(query) {
-  return [...defComments].filter((comment) => {
+function getCommentsByBody(data, query) {
+  return [...data].filter((comment) => {
     const cleanComment = comment["body"].replace(/\s/g, '')
     const stringPosition = cleanComment.indexOf(query)
 
@@ -182,4 +185,10 @@ function renderErrorMessage (message) {
   listEl.innerText = message
 }
 
+const mod = {
+  getCommentsByBody
+}
+
 getComments()
+
+module.exports = mod
