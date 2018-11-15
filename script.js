@@ -1,6 +1,3 @@
-const listEl = document.getElementById("list")
-const paginationEl = document.getElementById("pagination")
-
 let defComments = []
 let comments = []
 let commentLimit = 15
@@ -80,8 +77,9 @@ function getSortedComments(data, key, order) {
 
 function filterData(data, field, query) {
   return [...data].filter((comment) => {
+    const cleanQuery = query.replace(/\s/g, '')
     const cleanComment = comment[field].replace(/\s/g, '')
-    const stringPosition = cleanComment.indexOf(query)
+    const stringPosition = cleanComment.indexOf(cleanQuery)
 
     return stringPosition > -1
   })
@@ -103,6 +101,7 @@ function renderPage(page = 1) {
 }
 
 function renderPagination(selectedPage) {
+  const paginationEl = document.getElementById("pagination")
   paginationEl.innerHTML = ""
   const pages = Math.ceil(comments.length / commentLimit) 
   Array(pages).fill(0).forEach((el, index) => {
@@ -138,11 +137,13 @@ function renderHeaderList () {
   headerRow.appendChild(colEmail)
   headerRow.appendChild(colBody)
   headerRow.classList.add("header")
-
+  
+  const listEl = document.getElementById("list")
   listEl.appendChild(headerRow)
 }
 
 function renderList (page) {
+  const listEl = document.getElementById("list")
   listEl.innerHTML = ""
   const selectedComments = getCommentsPerPage(page)
   if (selectedComments.length > 0) {
@@ -176,5 +177,6 @@ function renderList (page) {
 }
 
 function renderErrorMessage (message) {
+  const listEl = document.getElementById("list")
   listEl.innerText = message
 }
