@@ -65,6 +65,9 @@ it('currentPage button should disabled', () => {
   comments = data
   
   renderPagination(2)
+
+  elementByIdStub.restore()
+  createElementStub.restore()
 })
 
 it('should show data based on query', () => {

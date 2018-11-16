@@ -102,6 +102,7 @@ function renderPage(page = 1) {
 
 function renderPagination(selectedPage) {
   const paginationEl = document.getElementById("pagination")
+  const { comments, commentLimit } = opt
   paginationEl.innerHTML = ""
   const pages = Math.ceil(comments.length / commentLimit) 
   Array(pages).fill(0).forEach((el, index) => {
@@ -180,3 +181,20 @@ function renderErrorMessage (message) {
   const listEl = document.getElementById("list")
   listEl.innerText = message
 }
+
+const opt = {
+  comments,
+  commentLimit
+}
+
+const mod = {
+  getSortedComments,
+  filterData,
+  onSelectSort,
+  onSearch,
+  getComments,
+  renderPagination,
+  opt
+}
+
+module.exports = mod
